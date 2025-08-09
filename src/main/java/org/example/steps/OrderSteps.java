@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class OrderSteps {
     @Step("Создание заказа")
-    public ValidatableResponse create(Order order, String accessToken) {
+    public ValidatableResponse createOrder(Order order, String accessToken) {
         RequestSpecification request = given()
                 .body(order);
 
