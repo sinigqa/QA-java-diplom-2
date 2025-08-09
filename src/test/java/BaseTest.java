@@ -9,11 +9,10 @@ import org.example.model.User;
 import org.example.steps.OrderSteps;
 import org.example.steps.UserSteps;
 import org.junit.After;
-import org.junit.Assume;
 import org.junit.Before;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 public class BaseTest {
     protected final UserSteps userSteps = new UserSteps();

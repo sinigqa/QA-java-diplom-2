@@ -41,7 +41,7 @@ public class UserCreationTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Невозможно создать пользователя без обязательного email")
+    @DisplayName("Невозможно создать пользователя без обязательного поля email")
     @Description("Попытка создания пользователя без email")
     public void testCannotCreateUserWithoutEmail() {
         User invalidUser = new User()
@@ -56,7 +56,7 @@ public class UserCreationTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Невозможно создать пользователя без обязательного password")
+    @DisplayName("Невозможно создать пользователя без обязательного поля password")
     @Description("Попытка создания пользователя без password")
     public void testCannotCreateUserWithoutPassword() {
         User invalidUser = new User()

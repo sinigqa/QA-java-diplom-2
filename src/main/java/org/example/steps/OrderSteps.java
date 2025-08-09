@@ -25,13 +25,13 @@ public class OrderSteps {
                 .then();
     }
 
-    @Step("Получение всех ID ингредиентов")
+    @Step("Получение ID ингредиентов")
     public List<String> getAllIngredientIds() {
         return given()
                 .get(Endpoints.Ingredient.GET_ALL)
                 .then()
                 .extract()
                 .jsonPath()
-                .getList("data._id");  // <-- Достаём только _id из массива data
+                .getList("data._id");
     }
 }
