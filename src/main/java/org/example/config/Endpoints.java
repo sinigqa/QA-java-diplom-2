@@ -10,4 +10,8 @@ public class Endpoints {
     public static class Order {
         public static final String CREATE = "/api/orders";
     }
+
+    public static class Ingredient {
+        public static final String GET_ALL = "/api/ingredients";
+    }
 }
