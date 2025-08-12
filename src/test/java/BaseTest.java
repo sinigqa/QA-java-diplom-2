@@ -33,7 +33,7 @@ public class BaseTest {
 
     protected User generateRandomUser() {
         return new User()
-                .setEmail(RandomStringUtils.randomAlphanumeric(10) + "@gmail.com")
+                .setEmail(RandomStringUtils.randomAlphanumeric(10) + "@test.com")
                 .setPassword(RandomStringUtils.randomAlphanumeric(10))
                 .setName(RandomStringUtils.randomAlphabetic(10));
     }
