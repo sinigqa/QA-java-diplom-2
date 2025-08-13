@@ -3,21 +3,27 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.example.model.User;
+import org.junit.Before;
 import org.junit.Test;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 public class UserLoginTests extends BaseTest {
 
-    @Test
-    @DisplayName("Успешная авторизация")
-    @Description("Вход с валидными учетными данными")
-    public void testSuccessfulLogin() {
-        User user = generateRandomUser();
+    @Before
+    public void setUpCreation() {
+        user = generateRandomUser();
         ValidatableResponse createResponse = userSteps.createUser(user);
 
         accessToken = createResponse.extract().path("accessToken");
 
+    }
+
+
+    @Test
+    @DisplayName("Успешная авторизация")
+    @Description("Вход с валидными учетными данными")
+    public void testSuccessfulLogin() {
         ValidatableResponse loginResponse = userSteps.loginUser(user);
 
         loginResponse
@@ -32,9 +38,6 @@ public class UserLoginTests extends BaseTest {
     @DisplayName("Авторизация с неверным паролем")
     @Description("Попытка входа с неверным паролем")
     public void testLoginWithWrongPassword() {
-        User user = generateRandomUser();
-        userSteps.createUser(user);
-
         User invalidUser = new User()
                 .setEmail(user.getEmail())
                 .setPassword(RandomStringUtils.randomAlphanumeric(8));
